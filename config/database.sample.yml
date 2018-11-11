@@ -1,0 +1,20 @@
+mysql: &mysql
+  adapter: mysql2
+  encoding: utf8mb4
+  username: root
+  password:
+
+
+default: &default
+  <<: *mysql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("DB_HOST", "localhost") %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: mention_collection_development
+
+test:
+  <<: *default
+  database: mention_collection_test

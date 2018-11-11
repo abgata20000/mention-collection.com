@@ -1,0 +1,12 @@
+.ui.middle.aligned.center.aligned.grid
+  #login-form.column
+    = simple_form_for(@user_session, url: {action: :create}, html: {class: 'ui large form'}) do |f|
+      .field
+        = f.input :username, label: false, placeholder: I18n.t(:username), error: false
+      button.ui.fluid.huge.teal.submit.button(type="submit")
+        = I18n.t(:login)
+    - if @user_session.errors.present?
+      .ui.error.message
+        - @user_session.errors.full_messages.each do |error|
+          p = error
+

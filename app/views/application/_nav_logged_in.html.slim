@@ -1,0 +1,6 @@
+.ui.simple.dropdown.item.right
+  = current_user.username
+  i.dropdown.icon
+  .menu
+    .divider
+    = link_to I18n.t(:logout), sessions_path, method: :delete, class: 'item'

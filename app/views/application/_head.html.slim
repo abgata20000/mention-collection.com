@@ -1,0 +1,13 @@
+head
+  title
+    = head_title
+  link(rel="shortcut icon" href="/images/favicon/favicon.png")
+  meta(name="description" content="")
+  meta(name="keywords" content="")
+  meta(charset="utf-8")
+  meta(meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no")
+  = csrf_meta_tags
+  = csp_meta_tag
+  = stylesheet_link_tag 'application', media: 'all'
+  = javascript_pack_tag 'application'
+  body class="#{controller_and_action_classes}" controller="#{controller_classes}" action="#{action_name}"

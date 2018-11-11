@@ -1,0 +1,8 @@
+staging:
+  url: <%= ENV['DATABASE_URL'] %>
+
+review_app:
+  url: <%= ENV['DATABASE_URL'] %>
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>

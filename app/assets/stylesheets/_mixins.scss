@@ -1,0 +1,22 @@
+/*=========================================
+Mixins
+======================================== */
+
+@mixin tb {
+  @media (min-width: #{$tb_width}) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: #{$pc_width}) {
+    @content;
+  }
+}
+
+@mixin max_width_container {
+  @media (min-width: #{$max_width_container}) {
+    padding: 0;
+    width: 90%;
+  }
+}

@@ -1,0 +1,6 @@
+header.ui.inverted.menu
+  .ui.container
+    - if logged_in?
+      = render 'nav_logged_in'
+    - else
+      = render 'nav'

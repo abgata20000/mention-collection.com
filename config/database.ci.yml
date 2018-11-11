@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: <%= ENV['DB_USERNAME'] || 'root' %>
+  password: <%= ENV['DB_PASSWORD'] || ENV['MYSQL_ROOT_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] || '127.0.0.1' %>
+
+development:
+  <<: *default
+  database: mention_collection_development
+
+test:
+  <<: *default
+  database: mention_collection_test

@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title
+      | 管理者
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+body class="admins #{controller_and_action_classes}" controller="#{controller_classes}" action="#{action_name}"
+  = yield

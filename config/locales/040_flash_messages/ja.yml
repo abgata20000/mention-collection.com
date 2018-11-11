@@ -1,0 +1,5 @@
+ja:
+  you_successfully_created: ! '%{name}を登録しました。'
+  you_successfully_updated: ! '%{name}を更新しました。'
+  you_successfully_destroyed: ! '%{name}を削除しました。'
+  you_successfully_duplicated: ! '%{name}を複製しました。'
