@@ -1,4 +1,4 @@
-# www.nihongo-chushin.com
+# https://mention-collection.com
 - https://mention-collection.com
 
 ## Rails version
