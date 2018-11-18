@@ -26,6 +26,8 @@
 #
 
 class User < ApplicationRecord
+  has_many :mentions
+
   enumerize :role, in: {
     guest: 0,
     user: 1,
