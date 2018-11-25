@@ -7,7 +7,11 @@
 #  url(url)      :string(255)      not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  user_id       :text(65535)      not null
+#  user_id       :bigint(8)        not null
+#
+# Indexes
+#
+#  index_mentions_on_user_id  (user_id)
 #
 
 class Mention < ApplicationRecord

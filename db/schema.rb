@@ -34,11 +34,12 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "mentions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", comment: "メンション情報", force: :cascade do |t|
-    t.text "user_id", null: false
+    t.bigint "user_id", null: false
     t.text "comment", null: false, comment: "コメント"
     t.string "url", null: false, comment: "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_mentions_on_user_id"
   end
 
   create_table "task_locks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", comment: "タスク管理", force: :cascade do |t|
