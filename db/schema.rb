@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", comment: "ユーザー情報", force: :cascade do |t|
     t.string "email", null: false, comment: "メールアドレス"
     t.string "name", comment: "ユーザー名"
+    t.string "slack_id", comment: "slack id"
     t.string "nickname", comment: "ユーザー名(ニックネーム)"
     t.string "token", comment: "トークン"
     t.integer "role", default: 1, null: false, comment: "権限"

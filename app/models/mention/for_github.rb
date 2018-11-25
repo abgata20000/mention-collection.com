@@ -15,18 +15,22 @@
 #
 
 class Mention < ApplicationRecord
-  belongs_to :user
+  class ForGithub < ActiveType::Record[Mention]
 
-  default_value_for :url, ""
+    class << self
+      def mention_user_ids(comment)
+        user_names = mention_user_names(comment)
+        User.where(name: user_names).ids
+      end
 
-  class << self
-    private
+      private
 
-    def mentions_search(comment)
-      tmp = comment.scan(%r{@[\w\-\/]+})
-      mentions = []
-      tmp.each { |mention| mentions << mention.delete("@") }
-      mentions
+      def mention_user_names(comment)
+        names = User.all.map(&:name)
+        mentions = mentions_search(comment)
+        mention = names & mentions
+        mention
+      end
     end
   end
 end

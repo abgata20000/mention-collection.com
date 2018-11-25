@@ -1,11 +1,11 @@
 module Api
   module Webhooks
-    class GithubWebhooksController < ApplicationController
+    class SlackWebhooksController < ApplicationController
       before_action :set_mention_user_ids, only: %w[create]
 
       def create
         @mention_user_ids.each do |user_id|
-          @mention = Mention::ForGithub.new(mention_params)
+          @mention = Mention::ForSlack.new(mention_params)
           @mention.user_id = user_id
           @mention.save
         end
@@ -16,13 +16,12 @@ module Api
 
       def mention_params
         mention_params = {}
-        mention_params[:comment] = params[:comment][:body]
-        mention_params[:url] = params[:comment][:html_url]
+        mention_params[:comment] = params[:text]
         mention_params
       end
 
       def set_mention_user_ids
-        @mention_user_ids = Mention::ForGithub.mention_user_ids(params[:comment][:body])
+        @mention_user_ids = Mention::ForSlack.mention_user_ids(params[:text])
       end
     end
   end
