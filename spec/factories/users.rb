@@ -25,27 +25,12 @@
 #  index_users_on_updated_at         (updated_at)
 #
 
-class User < ApplicationRecord
-  has_many :mentions
-
-  enumerize :role, in: {
-    guest: 0,
-    user: 1,
-    premium_user: 2,
-    manager: 9,
-    admin: 10,
-    ban_user: 99
-  }, scope: true
-
-  after_initialize :generate_token
-
-  def logout; end
-
-  def login; end
-
-  private
-
-  def generate_token
-    self.token = SecureRandom.hex(32) if token.blank?
+FactoryBot.define do
+  factory :user do
+    name { "aragai" }
+    email { "aragaki@mention-collection.com" }
+    nickname { "aragaki" }
+    role { 1 }
+    enabled { true }
   end
 end

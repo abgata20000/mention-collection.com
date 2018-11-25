@@ -1,4 +1,5 @@
 require "schema/active_storage_attachments.rb"
 require "schema/active_storage_blobs.rb"
+require "schema/mentions.rb"
 require "schema/task_locks.rb"
 require "schema/users.rb"
