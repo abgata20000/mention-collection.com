@@ -1,6 +1,7 @@
 create_table :users, comment: 'ユーザー情報', options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
   t.string :email, null: false, comment: 'メールアドレス'
   t.string :name, null: true, comment: 'ユーザー名'
+  t.string :slack_id, null: true, comment: 'slack id'
   t.string :nickname, null: true, comment: 'ユーザー名(ニックネーム)'
   t.string :token, null: true, comment: 'トークン'
   t.integer :role, null: false, default: 1, comment: '権限'
