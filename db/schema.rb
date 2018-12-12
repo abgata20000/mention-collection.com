@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "mentions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", comment: "メンション情報", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.text "comment", null: false, comment: "コメント"
-    t.string "url", null: false, comment: "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_mentions_on_user_id"
-  end
-
   create_table "task_locks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", comment: "タスク管理", force: :cascade do |t|
     t.string "key", null: false, comment: "管理用のキー(ユニーク)"
     t.string "name", comment: "タスク名"
@@ -60,7 +51,6 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", comment: "ユーザー情報", force: :cascade do |t|
     t.string "email", null: false, comment: "メールアドレス"
     t.string "name", comment: "ユーザー名"
-    t.string "slack_id", comment: "slack id"
     t.string "nickname", comment: "ユーザー名(ニックネーム)"
     t.string "token", comment: "トークン"
     t.integer "role", default: 1, null: false, comment: "権限"
