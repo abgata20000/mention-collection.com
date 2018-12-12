@@ -1,5 +1,8 @@
 require "schema/active_storage_attachments.rb"
 require "schema/active_storage_blobs.rb"
+require "schema/comments.rb"
+require "schema/issues.rb"
+require "schema/mention_keys.rb"
 require "schema/mentions.rb"
 require "schema/task_locks.rb"
 require "schema/users.rb"
